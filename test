@@ -1,0 +1,599 @@
+package com.company;
+
+import java.io.*;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Scanner;
+
+import static javax.tools.Diagnostic.Kind.NOTE;
+
+public class Person {
+    private static ArrayList<String> firstname1=new ArrayList<String>();
+            private static ArrayList<String> secondname1=new ArrayList<String>();
+            private static ArrayList<String> email1=new ArrayList<String>();
+            private static ArrayList<String> roles1=new ArrayList<String>();
+            private static ArrayList<String> phone1=new ArrayList<String>();
+
+    private static ArrayList<String> firstname2=new ArrayList<String>();
+    private static ArrayList<String> secondname2=new ArrayList<String>();
+    private static ArrayList<String> email2=new ArrayList<String>();
+    private static ArrayList<String> roles2=new ArrayList<String>();
+    private static ArrayList<String> phone2=new ArrayList<String>();
+
+    private static ArrayList<String> firstname3=new ArrayList<String>();
+    private static ArrayList<String> secondname3=new ArrayList<String>();
+    private static ArrayList<String> email3=new ArrayList<String>();
+    private static ArrayList<String> roles3=new ArrayList<String>();
+    private static ArrayList<String> phone3=new ArrayList<String>();
+    private static int num;
+            public static void main(String[] args) throws IOException {
+
+                Scanner scan = new Scanner(System.in);
+                int x = 0;
+                String s ="";
+
+                while (!"5".equals(s)) {
+                    System.out.println("1. Создание пользователей");
+                    System.out.println("2. Редактирование пользователей");
+                    System.out.println("3. Удаление пользователя");
+                    System.out.println("4. Вывод на экран");
+                    System.out.println("5. Вывод из программы");
+                    s = scan.next();
+
+                    try {
+                        x = Integer.parseInt(s);
+                    } catch (NumberFormatException e) {
+                        System.out.println("Неверный ввод");
+                    }
+
+                    switch (x) {
+                        case 1:
+                            try (FileWriter writer = new FileWriter("notes3.txt",false)) {
+
+                                InputStream inputStream = System.in;
+                                Reader inputStreamReader = new InputStreamReader(inputStream);
+                                BufferedReader bufferedReader = new BufferedReader(inputStreamReader);
+                                System.out.println("введите количество человек ");
+                                String numa = bufferedReader.readLine();
+                                int num = Integer.parseInt(numa);
+                                Person.num=num;
+                                if (num > 3) {
+                                    System.out.println("слишком много ");
+                                    break;
+                                } else if (num < 1) {
+                                    System.out.println("слишком мало ");
+                                    break;
+                                } else {
+                                    for (int i = 0; i < num; i++) {
+                                        if(i==0) {
+                                            System.out.println("введите имя ");
+                                            String name = bufferedReader.readLine();
+                                            firstname1.add(name);
+                                            System.out.println("введите фамилию ");
+                                            String secname = bufferedReader.readLine();
+                                            secondname1.add(secname);
+                                            System.out.println("введите почту ");
+                                            String mail = bufferedReader.readLine();
+                                            email1.add(mail);
+                                            System.out.println("введите количество ролей для пользователя ");
+                                            String rol = bufferedReader.readLine();
+                                            int rola = Integer.parseInt(rol);
+                                            for (int j = 0; j < rola; j++) {
+                                                System.out.println("введите роль " + j);
+                                                String ro = bufferedReader.readLine();
+                                                roles1.add(ro);
+                                                }
+                                            System.out.println("введите количество номеров для пользователя ");
+                                            String ph = bufferedReader.readLine();
+                                            int pho = Integer.parseInt(ph);
+                                            for (int k = 0; k < pho; k++) {
+                                                System.out.println("введите номер " + k);
+                                                String phones = bufferedReader.readLine();
+                                                phone1.add(phones);
+
+
+                                            }
+                                            writer.write(String.valueOf("user:"+1+" firstname: " + firstname1));
+                                            writer.write(String.valueOf(" secondname: " + secondname1));
+                                            writer.write(String.valueOf(" email: " + email1));
+                                            writer.write(String.valueOf(" roles: " + roles1));
+                                            writer.write(String.valueOf(" phonenumber: " + phone1));
+                                            writer.write(String.valueOf("\n"));
+
+                                        }
+                                        else if(i==1) {
+                                            System.out.println("введите имя ");
+                                            String name = bufferedReader.readLine();
+                                            firstname2.add(name);
+                                            System.out.println("введите фамилию ");
+                                            String secname = bufferedReader.readLine();
+                                            secondname2.add(secname);
+                                            System.out.println("введите почту ");
+                                            String mail = bufferedReader.readLine();
+                                            email2.add(mail);
+                                            System.out.println("введите количество ролей для пользователя ");
+                                            String rol = bufferedReader.readLine();
+                                            int rola = Integer.parseInt(rol);
+                                            for (int j = 0; j < rola; j++) {
+                                                System.out.println("введите роль " + j);
+                                                String ro = bufferedReader.readLine();
+                                                roles2.add(ro);
+                                                }
+                                            System.out.println("введите количество номеров для пользователя ");
+                                            String ph = bufferedReader.readLine();
+                                            int pho = Integer.parseInt(ph);
+                                            for (int k = 0; k < pho; k++) {
+                                                System.out.println("введите номер " + k);
+                                                String phones = bufferedReader.readLine();
+                                                phone2.add(phones);
+                                                }
+
+                                            writer.write(String.valueOf("user:"+2+" firstname: " + firstname2));
+                                            writer.write(String.valueOf(" secondname: " + secondname2));
+                                            writer.write(String.valueOf(" email: " + email2));
+                                            writer.write(String.valueOf(" roles: " + roles2));
+                                            writer.write(String.valueOf(" phonenumber: " + phone2));
+                                            writer.write(String.valueOf("\n"));
+
+                                        }
+                                        else if(i==2) {
+                                            System.out.println("введите имя ");
+                                            String name = bufferedReader.readLine();
+                                            firstname3.add(name);
+                                            System.out.println("введите фамилию ");
+                                            String secname = bufferedReader.readLine();
+                                            secondname3.add(secname);
+                                            System.out.println("введите почту ");
+                                            String mail = bufferedReader.readLine();
+                                            email3.add(mail);
+                                            System.out.println("введите количество ролей для пользователя ");
+                                            String rol = bufferedReader.readLine();
+                                            int rola = Integer.parseInt(rol);
+                                            for (int j = 0; j < rola; j++) {
+                                                System.out.println("введите роль " + j);
+                                                String ro = bufferedReader.readLine();
+                                                roles3.add(ro);
+                                                }
+                                            System.out.println("введите количество номеров для пользователя ");
+                                            String ph = bufferedReader.readLine();
+                                            int pho = Integer.parseInt(ph);
+                                            for (int k = 0; k < pho; k++) {
+                                                System.out.println("введите номер " + k);
+                                                String phones = bufferedReader.readLine();
+                                                phone3.add(phones);
+                                                }
+
+                                            writer.write(String.valueOf("user:"+3+" firstname: " + firstname3));
+                                            writer.write(String.valueOf(" secondname: " + secondname3));
+                                            writer.write(String.valueOf(" email: " + email3));
+                                            writer.write(String.valueOf(" roles: " + roles3));
+                                            writer.write(String.valueOf(" phonenumber: " + phone3));
+                                            writer.write(String.valueOf("\n"));
+                                        }
+                                    }
+                                }
+                            } catch (IOException ex) {
+
+                                System.out.println(ex.getMessage());
+                            }
+                            break;
+                        case 2:
+                            try (FileWriter writer = new FileWriter("notes3.txt",false)) {
+                                InputStream inputStream = System.in;
+                                Reader inputStreamReader = new InputStreamReader(inputStream);
+                                BufferedReader bufferedReader = new BufferedReader(inputStreamReader);
+                                System.out.println("введите номер пользователя для редактирования ");
+                                String numasa = bufferedReader.readLine();
+                                int numas = Integer.parseInt(numasa);
+                                if (numas == 1 && Person.num==1) {
+                                    for (int i = 0; i < numas; i++) {
+                                        System.out.println("введите имя ");
+                                        String name = bufferedReader.readLine();
+                                        firstname1.set(i, name);
+                                        System.out.println("введите фамилию ");
+                                        String secname = bufferedReader.readLine();
+                                        secondname1.set(i, secname);
+                                        System.out.println("введите почту ");
+                                        String mail = bufferedReader.readLine();
+                                        email1.set(i, mail);
+                                        System.out.println("введите количество ролей для пользователя ");
+                                        String rol = bufferedReader.readLine();
+                                        int rola = Integer.parseInt(rol);
+                                        for (int j = 0; j < rola; j++) {
+                                            System.out.println("введите роль " + j);
+                                            String ro = bufferedReader.readLine();
+                                            roles1.set(j, ro);
+                                            }
+                                        System.out.println("введите количество номеров для пользователя ");
+                                        String ph = bufferedReader.readLine();
+                                        int pho = Integer.parseInt(ph);
+                                        for (int k = 0; k < pho; k++) {
+                                            System.out.println("введите номер " + k);
+                                            String phones = bufferedReader.readLine();
+                                            phone1.set(k, phones);
+                                        }
+                                        writer.write(String.valueOf("user:"+1+" firstname: " + firstname1));
+                                        writer.write(String.valueOf(" secondname: " + secondname1));
+                                        writer.write(String.valueOf(" email: " + email1));
+                                        writer.write(String.valueOf(" roles: " + roles1));
+                                        writer.write(String.valueOf(" phonenumber: " + phone1));
+                                        writer.write(String.valueOf("\n"));
+                                        }
+                                }
+                                else if (numas == 1 && Person.num==2) {
+                                    for (int i = 0; i < numas; i++) {
+                                        System.out.println("введите имя ");
+                                        String name = bufferedReader.readLine();
+                                        firstname1.set(i, name);
+                                        System.out.println("введите фамилию ");
+                                        String secname = bufferedReader.readLine();
+                                        secondname1.set(i, secname);
+                                        System.out.println("введите почту ");
+                                        String mail = bufferedReader.readLine();
+                                        email1.set(i, mail);
+                                        System.out.println("введите количество ролей для пользователя ");
+                                        String rol = bufferedReader.readLine();
+                                        int rola = Integer.parseInt(rol);
+                                        for (int j = 0; j < rola; j++) {
+                                            System.out.println("введите роль " + j);
+                                            String ro = bufferedReader.readLine();
+                                            roles1.set(j, ro);
+                                        }
+                                        System.out.println("введите количество номеров для пользователя ");
+                                        String ph = bufferedReader.readLine();
+                                        int pho = Integer.parseInt(ph);
+                                        for (int k = 0; k < pho; k++) {
+                                            System.out.println("введите номер " + k);
+                                            String phones = bufferedReader.readLine();
+                                            phone1.set(k, phones);
+                                        }
+                                        writer.write(String.valueOf("user:"+1+" firstname: " + firstname1));
+                                        writer.write(String.valueOf(" secondname: " + secondname1));
+                                        writer.write(String.valueOf(" email: " + email1));
+                                        writer.write(String.valueOf(" roles: " + roles1));
+                                        writer.write(String.valueOf(" phonenumber: " + phone1));
+                                        writer.write(String.valueOf("\n"));
+                                        writer.write(String.valueOf("user:"+2+" firstname: " + firstname2));
+                                        writer.write(String.valueOf(" secondname: " + secondname2));
+                                        writer.write(String.valueOf(" email: " + email2));
+                                        writer.write(String.valueOf(" roles: " + roles2));
+                                        writer.write(String.valueOf(" phonenumber: " + phone2));
+                                        writer.write(String.valueOf("\n"));
+                                    }
+                                }
+                                else if (numas == 1 && Person.num==3) {
+                                    for (int i = 0; i < numas; i++) {
+                                        System.out.println("введите имя ");
+                                        String name = bufferedReader.readLine();
+                                        firstname1.set(i, name);
+                                        System.out.println("введите фамилию ");
+                                        String secname = bufferedReader.readLine();
+                                        secondname1.set(i, secname);
+                                        System.out.println("введите почту ");
+                                        String mail = bufferedReader.readLine();
+                                        email1.set(i, mail);
+                                        System.out.println("введите количество ролей для пользователя ");
+                                        String rol = bufferedReader.readLine();
+                                        int rola = Integer.parseInt(rol);
+                                        for (int j = 0; j < rola; j++) {
+                                            System.out.println("введите роль " + j);
+                                            String ro = bufferedReader.readLine();
+                                            roles1.set(j, ro);
+                                        }
+                                        System.out.println("введите количество номеров для пользователя ");
+                                        String ph = bufferedReader.readLine();
+                                        int pho = Integer.parseInt(ph);
+                                        for (int k = 0; k < pho; k++) {
+                                            System.out.println("введите номер " + k);
+                                            String phones = bufferedReader.readLine();
+                                            phone1.set(k, phones);
+                                        }
+                                        writer.write(String.valueOf("user:"+1+" firstname: " + firstname1));
+                                        writer.write(String.valueOf(" secondname: " + secondname1));
+                                        writer.write(String.valueOf(" email: " + email1));
+                                        writer.write(String.valueOf(" roles: " + roles1));
+                                        writer.write(String.valueOf(" phonenumber: " + phone1));
+                                        writer.write(String.valueOf("\n"));
+                                        writer.write(String.valueOf("user:"+2+" firstname: " + firstname2));
+                                        writer.write(String.valueOf(" secondname: " + secondname2));
+                                        writer.write(String.valueOf(" email: " + email2));
+                                        writer.write(String.valueOf(" roles: " + roles2));
+                                        writer.write(String.valueOf(" phonenumber: " + phone2));
+                                        writer.write(String.valueOf("\n"));
+                                        writer.write(String.valueOf("user:"+3+" firstname: " + firstname3));
+                                        writer.write(String.valueOf(" secondname: " + secondname3));
+                                        writer.write(String.valueOf(" email: " + email3));
+                                        writer.write(String.valueOf(" roles: " + roles3));
+                                        writer.write(String.valueOf(" phonenumber: " + phone3));
+                                        writer.write(String.valueOf("\n"));
+                                    }
+                                }
+                                else if (numas == 2 && Person.num==2) {
+                                    for (int i = 1; i < numas; i++) {
+                                        System.out.println("введите имя ");
+                                        String name = bufferedReader.readLine();
+                                        firstname2.set(i-i, name);
+                                        System.out.println("введите фамилию ");
+                                        String secname = bufferedReader.readLine();
+                                        secondname2.set(i-i, secname);
+                                        System.out.println("введите почту ");
+                                        String mail = bufferedReader.readLine();
+                                        email2.set(i-i, mail);
+                                       System.out.println("введите количество ролей для пользователя ");
+                                        String rol = bufferedReader.readLine();
+                                        int rola = Integer.parseInt(rol);
+                                        for (int j = 0; j < rola; j++) {
+                                            System.out.println("введите роль " + j);
+                                            String ro = bufferedReader.readLine();
+                                            roles2.set(j, ro);
+                                            }
+                                        System.out.println("введите количество номеров для пользователя ");
+                                        String ph = bufferedReader.readLine();
+                                        int pho = Integer.parseInt(ph);
+                                        for (int k = 0; k < pho; k++) {
+                                            System.out.println("введите номер " + k);
+                                            String phones = bufferedReader.readLine();
+                                            phone2.set(k, phones);
+                                           }
+                                        writer.write(String.valueOf("user:"+1+" firstname: " + firstname1));
+                                        writer.write(String.valueOf(" secondname: " + secondname1));
+                                        writer.write(String.valueOf(" email: " + email1));
+                                        writer.write(String.valueOf(" roles: " + roles1));
+                                        writer.write(String.valueOf(" phonenumber: " + phone1));
+                                        writer.write(String.valueOf("\n"));
+                                        writer.write(String.valueOf("user:"+2+" firstname: " + firstname2));
+                                        writer.write(String.valueOf(" secondname: " + secondname2));
+                                        writer.write(String.valueOf(" email: " + email2));
+                                        writer.write(String.valueOf(" roles: " + roles2));
+                                        writer.write(String.valueOf(" phonenumber: " + phone2));
+                                        writer.write(String.valueOf("\n"));
+                                    }
+                                }
+                                else if (numas == 2 && Person.num==3) {
+                                    for (int i = 1; i < numas; i++) {
+                                        System.out.println("введите имя ");
+                                        String name = bufferedReader.readLine();
+                                        firstname2.set(i-i, name);
+                                        System.out.println("введите фамилию ");
+                                        String secname = bufferedReader.readLine();
+                                        secondname2.set(i-i, secname);
+                                        System.out.println("введите почту ");
+                                        String mail = bufferedReader.readLine();
+                                        email2.set(i-i, mail);
+                                        System.out.println("введите количество ролей для пользователя ");
+                                        String rol = bufferedReader.readLine();
+                                        int rola = Integer.parseInt(rol);
+                                        for (int j = 0; j < rola; j++) {
+                                            System.out.println("введите роль " + j);
+                                            String ro = bufferedReader.readLine();
+                                            roles2.set(j, ro);
+                                        }
+                                        System.out.println("введите количество номеров для пользователя ");
+                                        String ph = bufferedReader.readLine();
+                                        int pho = Integer.parseInt(ph);
+                                        for (int k = 0; k < pho; k++) {
+                                            System.out.println("введите номер " + k);
+                                            String phones = bufferedReader.readLine();
+                                            phone2.set(k, phones);
+                                        }
+                                        writer.write(String.valueOf("user:"+1+" firstname: " + firstname1));
+                                        writer.write(String.valueOf(" secondname: " + secondname1));
+                                        writer.write(String.valueOf(" email: " + email1));
+                                        writer.write(String.valueOf(" roles: " + roles1));
+                                        writer.write(String.valueOf(" phonenumber: " + phone1));
+                                        writer.write(String.valueOf("\n"));
+                                        writer.write(String.valueOf("user:"+2+" firstname: " + firstname2));
+                                        writer.write(String.valueOf(" secondname: " + secondname2));
+                                        writer.write(String.valueOf(" email: " + email2));
+                                        writer.write(String.valueOf(" roles: " + roles2));
+                                        writer.write(String.valueOf(" phonenumber: " + phone2));
+                                        writer.write(String.valueOf("\n"));
+                                        writer.write(String.valueOf("user:"+3+" firstname: " + firstname3));
+                                        writer.write(String.valueOf(" secondname: " + secondname3));
+                                        writer.write(String.valueOf(" email: " + email3));
+                                        writer.write(String.valueOf(" roles: " + roles3));
+                                        writer.write(String.valueOf(" phonenumber: " + phone3));
+                                        writer.write(String.valueOf("\n"));
+                                    }
+                                }
+                                else if (numas == 3) {
+                                    for (int i = 2; i < numas; i++) {
+                                        System.out.println("введите имя ");
+                                        String name = bufferedReader.readLine();
+                                        firstname3.set(i-i, name);
+                                        System.out.println("введите фамилию ");
+                                        String secname = bufferedReader.readLine();
+                                        secondname3.set(i-i, secname);
+                                        System.out.println("введите почту ");
+                                        String mail = bufferedReader.readLine();
+                                        email3.set(i-i, mail);
+                                        System.out.println("введите количество ролей для пользователя ");
+                                        String rol = bufferedReader.readLine();
+                                        int rola = Integer.parseInt(rol);
+                                        for (int j = 0; j < rola; j++) {
+                                            System.out.println("введите роль " + j);
+                                            String ro = bufferedReader.readLine();
+                                            roles3.set(j, ro);
+                                            }
+                                        System.out.println("введите количество номеров для пользователя ");
+                                        String ph = bufferedReader.readLine();
+                                        int pho = Integer.parseInt(ph);
+                                        for (int k = 0; k < pho; k++) {
+                                            System.out.println("введите номер " + k);
+                                            String phones = bufferedReader.readLine();
+                                            phone3.set(k, phones);
+                                           }
+                                        writer.write(String.valueOf("user:"+1+" firstname: " + firstname1));
+                                        writer.write(String.valueOf(" secondname: " + secondname1));
+                                        writer.write(String.valueOf(" email: " + email1));
+                                        writer.write(String.valueOf(" roles: " + roles1));
+                                        writer.write(String.valueOf(" phonenumber: " + phone1));
+                                        writer.write(String.valueOf("\n"));
+                                        writer.write(String.valueOf("user:"+2+" firstname: " + firstname2));
+                                        writer.write(String.valueOf(" secondname: " + secondname2));
+                                        writer.write(String.valueOf(" email: " + email2));
+                                        writer.write(String.valueOf(" roles: " + roles2));
+                                        writer.write(String.valueOf(" phonenumber: " + phone2));
+                                        writer.write(String.valueOf("\n"));
+                                        writer.write(String.valueOf("user:"+3+" firstname: " + firstname3));
+                                        writer.write(String.valueOf(" secondname: " + secondname3));
+                                        writer.write(String.valueOf(" email: " + email3));
+                                        writer.write(String.valueOf(" roles: " + roles3));
+                                        writer.write(String.valueOf(" phonenumber: " + phone3));
+                                        writer.write(String.valueOf("\n"));
+                                    }
+                                }
+                            }
+                                 catch(IOException ex){
+
+                                    System.out.println(ex.getMessage());
+                                }
+                                    break;
+                        case 3:
+                            try (FileWriter writer = new FileWriter("notes3.txt",false)) {
+                                InputStream inputStream = System.in;
+                                Reader inputStreamReader = new InputStreamReader(inputStream);
+                                BufferedReader bufferedReader = new BufferedReader(inputStreamReader);
+                                System.out.println("введите номер пользователя для удаления ");
+                                String numasa = bufferedReader.readLine();
+                                int numas = Integer.parseInt(numasa);
+                                if(numas<1)
+                                {System.out.println("такого не существует ");
+                                break;}
+                                else if(numas>3)
+                                {System.out.println("такого не существует ");
+                                break;}
+                                else if (numas == 1 && Person.num==1) {
+                                    firstname1.remove(0);
+                                    secondname1.remove(0);
+                                    email1.remove(0);
+                                    roles1.remove(0);
+                                    phone1.remove(0);
+                                    }
+                                else if (numas == 1 && Person.num==2) {
+                                    firstname1.remove(0);
+                                    secondname1.remove(0);
+                                    email1.remove(0);
+                                    roles1.remove(0);
+                                    phone1.remove(0);
+                                    writer.write(String.valueOf("user:"+2+" firstname: " + firstname2));
+                                    writer.write(String.valueOf(" secondname: " + secondname2));
+                                    writer.write(String.valueOf(" email: " + email2));
+                                    writer.write(String.valueOf(" roles: " + roles2));
+                                    writer.write(String.valueOf(" phonenumber: " + phone2));
+                                    writer.write(String.valueOf("\n"));
+                                    }
+                                else if (numas == 1 && Person.num==3) {
+                                        firstname1.remove(0);
+                                        secondname1.remove(0);
+                                        email1.remove(0);
+                                        roles1.remove(0);
+                                        phone1.remove(0);
+                                    writer.write(String.valueOf("user:"+2+" firstname: " + firstname2));
+                                    writer.write(String.valueOf(" secondname: " + secondname2));
+                                    writer.write(String.valueOf(" email: " + email2));
+                                    writer.write(String.valueOf(" roles: " + roles2));
+                                    writer.write(String.valueOf(" phonenumber: " + phone2));
+                                    writer.write(String.valueOf("\n"));
+                                    writer.write(String.valueOf("user:"+3+" firstname: " + firstname3));
+                                    writer.write(String.valueOf(" secondname: " + secondname3));
+                                    writer.write(String.valueOf(" email: " + email3));
+                                    writer.write(String.valueOf(" roles: " + roles3));
+                                    writer.write(String.valueOf(" phonenumber: " + phone3));
+                                    writer.write(String.valueOf("\n"));
+                                    }
+                                else if (numas == 2 && Person.num==2) {
+                                    firstname2.remove(0);
+                                    secondname2.remove(0);
+                                    email2.remove(0);
+                                    roles2.remove(0);
+                                    phone2.remove(0);
+                                    writer.write(String.valueOf("user:"+1+" firstname: " + firstname1));
+                                    writer.write(String.valueOf(" secondname: " + secondname1));
+                                    writer.write(String.valueOf(" email: " + email1));
+                                    writer.write(String.valueOf(" roles: " + roles1));
+                                    writer.write(String.valueOf(" phonenumber: " + phone1));
+                                    writer.write(String.valueOf("\n"));
+                                    }
+                                else if (numas == 2 && Person.num==3) {
+                                    firstname2.remove(0);
+                                    secondname2.remove(0);
+                                    email2.remove(0);
+                                    roles2.remove(0);
+                                    phone2.remove(0);
+                                    writer.write(String.valueOf("user:"+1+" firstname: " + firstname1));
+                                    writer.write(String.valueOf(" secondname: " + secondname1));
+                                    writer.write(String.valueOf(" email: " + email1));
+                                    writer.write(String.valueOf(" roles: " + roles1));
+                                    writer.write(String.valueOf(" phonenumber: " + phone1));
+                                    writer.write(String.valueOf("\n"));
+                                    writer.write(String.valueOf("user:"+3+" firstname: " + firstname3));
+                                    writer.write(String.valueOf(" secondname: " + secondname3));
+                                    writer.write(String.valueOf(" email: " + email3));
+                                    writer.write(String.valueOf(" roles: " + roles3));
+                                    writer.write(String.valueOf(" phonenumber: " + phone3));
+                                    writer.write(String.valueOf("\n"));
+                                    }
+                                else if (numas == 3) {
+                                    firstname3.remove(0);
+                                    secondname3.remove(0);
+                                    email3.remove(0);
+                                    roles3.remove(0);
+                                    phone3.remove(0);
+                                    writer.write(String.valueOf("user:"+1+" firstname: " + firstname1));
+                                    writer.write(String.valueOf(" secondname: " + secondname1));
+                                    writer.write(String.valueOf(" email: " + email1));
+                                    writer.write(String.valueOf(" roles: " + roles1));
+                                    writer.write(String.valueOf(" phonenumber: " + phone1));
+                                    writer.write(String.valueOf("\n"));
+                                    writer.write(String.valueOf("user:"+2+" firstname: " + firstname2));
+                                    writer.write(String.valueOf(" secondname: " + secondname2));
+                                    writer.write(String.valueOf(" email: " + email2));
+                                    writer.write(String.valueOf(" roles: " + roles2));
+                                    writer.write(String.valueOf(" phonenumber: " + phone2));
+                                    writer.write(String.valueOf("\n"));
+                                }
+                            } catch(IOException ex){
+
+                                System.out.println(ex.getMessage());
+                            }
+                            break;
+                        case 4:
+                            try(FileReader reader = new FileReader("notes3.txt"))
+                            {
+
+                                char[] buf = new char[256];
+                                int c;
+                                while((c = reader.read(buf))>0){
+
+                                    if(c < 256){
+                                        buf = Arrays.copyOf(buf, c);
+                                    }
+                                    System.out.print(buf);
+                                }
+                            }
+                            catch(IOException ex){
+
+                                System.out.println(ex.getMessage());
+                            }
+
+                    break;
+                    }
+                }
+                System.out.println("До свидания!");
+
+            }
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+
